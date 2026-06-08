@@ -11,13 +11,52 @@ nav {
     overflow-x: hidden;
     z-index: 100;
   }
-  .resume-nav{
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 10px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.336);
-    background-color: rgba(0, 0, 0, 0.082);
-  }
+.resume-nav {
+  position: relative;
+  overflow: hidden;
+
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 10px 20px;
+
+
+  background-color: rgba(0, 0, 0, 0.082);
+
+  transition: color 0.4s ease;
+  z-index: 1;
+}
+
+.resume-nav::before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: red;
+
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+  z-index: -1;
+}
+
+.resume-nav:hover::before {
+  transform: scaleY(1);
+}
+
+.resume-nav:hover {
+  color: white;
+
+}
+.resume-nav a {
+  color: inherit;
+}
   nav .logo {
     padding: 0.5em 0.65em;
     background-color: var(--fg);
@@ -28,12 +67,53 @@ nav {
     user-select: none;
   }
   
-  nav .menu-toggle-btn {
+  /* nav .menu-toggle-btn {
     padding: 0.6em 0.65em 0.65em 0.65em;
     background-color: var(--bg2);
     color: var(--fg);
+    transition: all ease .5s;
   }
-  
+    nav .menu-toggle-btn:hover{
+      background-color: red;
+      color: white;
+    } */
+     nav .menu-toggle-btn {
+  position: relative;
+  overflow: hidden;
+
+  padding: 0.6em 0.65em 0.65em 0.65em;
+
+  background-color: var(--bg2);
+  color: var(--fg);
+
+  transition: color 0.4s ease;
+  z-index: 1;
+}
+
+nav .menu-toggle-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: red;
+
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+  z-index: -1;
+}
+
+nav .menu-toggle-btn:hover::before {
+  transform: scaleY(1);
+}
+
+nav .menu-toggle-btn:hover {
+  color: white;
+}
+
+
   nav .menu-toggle-btn.menu-open {
     background-color: var(--fg);
     color: var(--bg);

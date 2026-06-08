@@ -5,6 +5,43 @@ import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// custom cursor
+const circle = document.querySelector(".cursor-circle");
+
+window.addEventListener("mousemove", (e) => {
+  gsap.to(circle, {
+    x: e.clientX,
+    y: e.clientY,
+    duration: 0.3,
+    ease: "power2.out",
+  });
+});
+
+
+const hoverElements = document.querySelectorAll(
+  "a, button, .resume-nav, .menu-toggle-btn"
+);
+
+hoverElements.forEach((el) => {
+  el.addEventListener("mouseenter", () => {
+    gsap.to(circle, {
+      width: 80,
+      height: 80,
+      duration: 0.3,
+      ease: "power3.out",
+    });
+  });
+
+  el.addEventListener("mouseleave", () => {
+    gsap.to(circle, {
+      width: 20,
+      height: 20,
+      duration: 0.3,
+      ease: "power3.out",
+    });
+  });
+});
+
 // Wait for DOM to fully load before executing
 document.addEventListener("DOMContentLoaded", () => {
   // Determine if device is mobile (width <= 900px)

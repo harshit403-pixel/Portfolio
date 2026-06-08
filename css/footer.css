@@ -48,7 +48,13 @@ footer {
   footer .copyright-info a {
     color: var(--bg);
   }
-  
+   footer .footer-col a:hover{
+    color: aqua;
+    
+   }
+   footer .footer-col p:not(:first-child):hover{
+    opacity: 1;
+   }
   footer .footer-col p:not(:first-child) {
     opacity: 0.35;
   }
