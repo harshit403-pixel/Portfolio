@@ -11,7 +11,13 @@ nav {
     overflow-x: hidden;
     z-index: 100;
   }
-  
+  .resume-nav{
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.336);
+    background-color: rgba(0, 0, 0, 0.082);
+  }
   nav .logo {
     padding: 0.5em 0.65em;
     background-color: var(--fg);
